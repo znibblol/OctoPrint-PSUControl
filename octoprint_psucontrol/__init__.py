@@ -510,6 +510,7 @@ class PSUControl(octoprint.plugin.StartupPlugin,
             self.check_psu_state()
 
             if self.config['connectOnPowerOn'] and self._printer.is_closed_or_error():
+                time.sleep(2.0)
                 self._printer.connect()
                 time.sleep(0.1)
 
